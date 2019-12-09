@@ -40,8 +40,8 @@ const displayItem = item => {
 }
 
 const addItem = item => {
-    // send the item (string) to the API + and display it in the shopping list
-    API.post(endPoint, item)
+    // send the item (string) to the API and display it in the shopping list
+    API.post(endPoint, { item: item })
     .then(displayItem(item));
 }
 
@@ -49,14 +49,12 @@ const addItem = item => {
 const initShoppingList = () => {
     // get list of existing items and display them
     API.get(endPoint)
-    .then(data => data.forEach(el => displayItem(el)));
-
+    .then(data => data.forEach(el => displayItem(el.item)));
     // call the addItem(item) method when a user submits the add-item-form
     form.addEventListener('submit', event => {
       event.preventDefault();
       let toAdd = document.querySelector("#item-name");
-      addItem(toAdd.value)
-      toAdd.textContent = "";
+      addItem(toAdd.value);
     })
 }
 
