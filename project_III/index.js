@@ -26,6 +26,17 @@ class Backend {
   }
 }
 
+// API.setBaseUrl(baseUrl);
+// API.get(endPoint)
+// .then(data => {
+//   const filtered = data.find(el => el.item === item);
+//   const liDiv = document.createElement('li');
+//   console.log(filtered.item);
+//   liDiv.textContent = filtered.item;
+//   ul.insertAdjacentElement('beforeend', liDiv);
+// })
+
+
 // COPY PASTE TO LEARN JS ONLINE
 const baseUrl = "https://api.learnjavascript.online/demo/";
 const endPoint = "shopping-list.json";
@@ -35,18 +46,10 @@ const API = new Backend;
 
 const displayItem = item => {
     // display the item (string) in the shopping-list element
-    API.setBaseUrl(baseUrl);
-    API.get(endPoint)
-    .then(data => {
-      const filtered = data.find(el => el.item === item);
-      const liDiv = document.createElement('li');
-      console.log(filtered.item);
-      liDiv.textContent = filtered.item;
-      ul.insertAdjacentElement('beforeend', liDiv);
-    })
+    ul.insertAdjacentHTML('beforeend', `<li>${item}</li>`);
 }
 
-displayItem("Bread");
+displayItem("Pomme de pain");
 
 
 /**
