@@ -1,7 +1,34 @@
+class Backend {
+  constructor() {
+    this.baseUrl = "";
+  }
 
-/**
- * @param {string} item
- */
+  setBaseUrl(baseUrl) {
+    this.baseUrl = baseUrl;
+  }
+
+  getBaseUrl() {
+    return this.baseUrl;
+  }
+
+  get(endpoint) {
+    return fetch(this.baseUrl + endpoint).then(response => response.json());
+  }
+
+  post(endpoint, data = {}) {
+    return fetch(this.baseUrl + endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then(response => response.json());
+  }
+}
+
+
+
+// COPY PASTE TO LEARNJSO
 const displayItem = item => {
     // display the item (string) in the shopping-list element
 
