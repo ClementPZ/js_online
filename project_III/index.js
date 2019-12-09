@@ -26,11 +26,11 @@ class Backend {
   }
 }
 
-// COPY PASTE TO LEARNJSONLINE
+// COPY PASTE TO LEARN JS ONLINE
 const baseUrl = "https://api.learnjavascript.online/demo/";
 const endPoint = "shopping-list.json";
-const form = window.document.querySelector("#add-item-form");
-const ul = window.document.querySelector("#shopping-list");
+const form = document.querySelector("#add-item-form");
+const ul = document.querySelector("#shopping-list");
 const API = new Backend;
 
 const displayItem = item => {
@@ -38,11 +38,17 @@ const displayItem = item => {
     API.setBaseUrl(baseUrl);
     API.get(endPoint)
     .then(data => {
-      console.log(data);
+      const filtered = data.find(el => el.item === item);
+      const liDiv = document.createElement('li');
+      console.log(filtered.item);
+      liDiv.textContent = filtered.item;
+      ul.insertAdjacentElement('beforeend', liDiv);
     })
 }
 
-displayItem("banana");
+displayItem("Bread");
+
+
 /**
  * @param {string} item
  */
