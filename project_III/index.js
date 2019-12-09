@@ -26,14 +26,23 @@ class Backend {
   }
 }
 
+// COPY PASTE TO LEARNJSONLINE
+const baseUrl = "https://api.learnjavascript.online/demo/";
+const endPoint = "shopping-list.json";
+const form = window.document.querySelector("#add-item-form");
+const ul = window.document.querySelector("#shopping-list");
+const API = new Backend;
 
-
-// COPY PASTE TO LEARNJSO
 const displayItem = item => {
     // display the item (string) in the shopping-list element
-
+    API.setBaseUrl(baseUrl);
+    API.get(endPoint)
+    .then(data => {
+      console.log(data);
+    })
 }
 
+displayItem("banana");
 /**
  * @param {string} item
  */
