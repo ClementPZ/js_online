@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <template id="todo-template">
+        <style>
+            p {
+                font-weight: bold;
+            }
+        </style>
+        <h2 id="title"></h2>
+        <p>This task is <span id="status"></span></p>
+        <!-- for completed tasks it should say: This task is completed -->
+        <!-- for incompleted tasks it should say: This task is pending -->
+    </template>
+
+   <todo-item title="Learn JavaScript course" is-completed="true"></todo-item>
+   <todo-item title="Practice Web Components" is-completed="false"></todo-item>
+
+</body>
+</html>
