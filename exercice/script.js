@@ -236,7 +236,3 @@ const initValidation = () => {
 // }
 // //sample usage
 // initValidation();
-
-
-
-
